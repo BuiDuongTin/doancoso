@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.ThongBao>
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h2>Thông báo</h2>
+<ul>
+    @foreach (var tb in Model)
+    {
+        <li>
+            <strong>@tb.TieuDe</strong> - @tb.NgayTao.ToShortDateString()
+            <p>@tb.NoiDung</p>
+        </li>
+    }
+</ul>

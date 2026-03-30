@@ -1,0 +1,85 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">Tạo tài khoản mới</h2>
+                </div>
+                <div class="card-body p-4">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.HoTen" class="form-label">Họ và tên</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input asp-for="Input.HoTen" class="form-control" autocomplete="fullname" placeholder="Nguyễn Văn A" />
+                            </div>
+                            <span asp-validation-for="Input.HoTen" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Email" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="name@example.com" />
+                            </div>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Password" class="form-label">Mật khẩu</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                <input asp-for="Input.Password" type="password" class="form-control" autocomplete="new-password" />
+                            </div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.ConfirmPassword" class="form-label">Nhập lại mật khẩu</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                                <input asp-for="Input.ConfirmPassword" type="password" class="form-control" autocomplete="new-password" />
+                            </div>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.SoDienThoai" class="form-label">Số điện thoại</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                <input asp-for="Input.SoDienThoai" class="form-control" placeholder="0987654321" />
+                            </div>
+                            <span asp-validation-for="Input.SoDienThoai" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.VaiTro" class="form-label">Vai trò</label>
+                            <select asp-for="Input.VaiTro" asp-items="@Model.Input.RoleList" class="form-select">
+                                <option disabled selected>--Chọn--</option>
+                            </select>
+                        </div>
+
+                        <button id="registerSubmit" type="submit" class="btn btn-primary w-100 fw-bold">
+                            <i class="bi bi-person-plus"></i> Đăng ký
+                        </button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <small>Bạn đã có tài khoản? <a href="/Account/Login">Đăng nhập</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

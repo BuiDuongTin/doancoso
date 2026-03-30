@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.PhanAnh>
+
+<h2>Danh Sách Phản Hồi/Sự Cố</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loại Sự Cố</th>
+            <th>Nội Dung</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var phanHoi in Model)
+        {
+            <tr>
+                <td>@phanHoi.LoaiSuCo</td>
+                <td>@phanHoi.NoiDung</td>
+                <td>@phanHoi.TrangThai</td>
+                <td>@phanHoi.NgayTao.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,9 @@
+﻿@model Quản_lý_khu_chung_cư.Models.HoaDon
+
+<h2>Chi Tiết Hóa Đơn</h2>
+<div>
+    <p><strong>Phương Thức Thanh Toán:</strong> @Model.PhuongThucThanhToan</p>
+    <p><strong>Tổng Tiền:</strong> @Model.TongTien.ToString("C")</p>
+    <p><strong>Ngày Thanh Toán:</strong> @Model.NgayThanhToan.ToString("dd/MM/yyyy")</p>
+    <p><strong>Trạng Thái:</strong> @Model.TrangThai</p>
+</div>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.LichBaoTri>
+
+<h2>Danh Sách Lịch Bảo Trì</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ngày Bảo Trì</th>
+            <th>Nội Dung</th>
+            <th>Tiện Ích</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lich in Model)
+        {
+            <tr>
+                <td>@lich.NgayBaoTri.ToString("dd/MM/yyyy")</td>
+                <td>@lich.NoiDung</td>
+                <td>@lich.TienIch.Ten</td>
+            </tr>
+        }
+    </tbody>
+</table>

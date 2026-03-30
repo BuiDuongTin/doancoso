@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.TienIch>
+<h2>Danh sách tiện ích</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Vị trí</th>
+            <th>Mô tả</th>
+            <th>Đặt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tienIch in Model)
+        {
+            <tr>
+                <td>@tienIch.Ten</td>
+                <td>@tienIch.ViTri</td>
+                <td>@tienIch.MoTa</td>
+                <td>
+                    <form asp-controller="CuDan" asp-action="DatTienIch" method="post">
+                        <input type="hidden" name="id" value="@tienIch.Id" />
+                        <input type="date" name="ngayDat" required />
+                        <input type="time" name="gioBatDau" required />
+                        <input type="time" name="gioKetThuc" required />
+                        <button type="submit">Đặt</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+</style>

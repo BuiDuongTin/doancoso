@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.TienIch>
+
+<h2>Danh Sách Tiện Ích</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Vị Trí</th>
+            <th>Mô Tả</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tienIch in Model)
+        {
+            <tr>
+                <td>@tienIch.Ten</td>
+                <td>@tienIch.ViTri</td>
+                <td>@tienIch.MoTa</td>
+            </tr>
+        }
+    </tbody>
+</table>

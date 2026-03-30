@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.PhiDichVu>
+
+<h2>Quản Lý Dịch Vụ</h2>
+<a asp-action="ThemDichVu" class="btn btn-primary">Thêm Dịch Vụ</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loại Phí</th>
+            <th>Số Tiền</th>
+            <th>Hạn Thanh Toán</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var phi in Model)
+        {
+            <tr>
+                <td>@phi.LoaiPhi</td>
+                <td>@phi.SoTien.ToString("C")</td>
+                <td>@phi.HanThanhToan.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a asp-action="SuaDichVu" asp-route-id="@phi.Id" class="btn btn-warning">Sửa</a>
+                    <form asp-action="XoaDichVu" asp-route-id="@phi.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

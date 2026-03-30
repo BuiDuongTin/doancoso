@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h2>Gửi phản hồi</h2>
+<form asp-controller="CuDan" asp-action="GuiPhanHoi" method="post">
+    <label>Loại sự cố:</label>
+    <select name="loaiSuCo" required>
+        <option value="" disabled selected>Chọn loại sự cố</option>
+        @foreach (var loai in ViewBag.LoaiSuCoList)
+        {
+            <option value="@loai">@loai</option>
+        }
+    </select>
+    <br />
+    <label>Nội dung:</label>
+    <textarea name="noiDung" required></textarea>
+    <br />
+    <button type="submit">Gửi</button>
+</form>

@@ -1,0 +1,19 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th>Họ Tên</th>
+            <th>Email</th>
+            <th>Trạng Thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var resident in Model)
+        {
+            <tr>
+                <td>@resident.HoTen</td>
+                <td>@resident.Email</td>
+                <td>@(resident.EmailConfirmed ? "Đã Duyệt" : "Chưa Duyệt")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Quản_lý_khu_chung_cư.Models.PhanAnh>
+
+<h2>Danh Sách Phản Ánh</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Người Dùng</th>
+            <th>Loại Sự Cố</th>
+            <th>Nội Dung</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var phanAnh in Model)
+        {
+            <tr>
+                <td>@phanAnh.NguoiDung?.HoTen</td>
+                <td>@phanAnh.LoaiSuCo</td>
+                <td>@phanAnh.NoiDung</td>
+                <td>@phanAnh.TrangThai</td>
+                <td>@phanAnh.NgayTao.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <form method="post" asp-area="BaoVeVaNhanVienQuanLy" asp-controller="BaoVe" asp-action="CapNhatTrangThai">
+                        <input type="hidden" name="id" value="@phanAnh.Id" />
+                        <select name="trangThai">
+                            <option value="DangXuLy" @(phanAnh.TrangThai == "DangXuLy" ? "selected" : "")>Đang xử lý</option>
+                            <option value="DaXuLy" @(phanAnh.TrangThai == "DaXuLy" ? "selected" : "")>Đã xử lý</option>
+                            <option value="TuChoi" @(phanAnh.TrangThai == "TuChoi" ? "selected" : "")>Từ chối</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

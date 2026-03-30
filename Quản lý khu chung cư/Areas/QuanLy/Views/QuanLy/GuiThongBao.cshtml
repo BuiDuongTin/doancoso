@@ -1,0 +1,24 @@
+﻿@model Quản_lý_khu_chung_cư.Models.ThongBao
+
+<h2>Gửi Thông Báo</h2>
+<form asp-action="GuiThongBao" method="post">
+    <div class="form-group">
+        <label for="TieuDe">Tiêu Đề</label>
+        <input type="text" class="form-control" id="TieuDe" name="TieuDe" value="@Model.TieuDe" required />
+    </div>
+    <div class="form-group">
+        <label for="NoiDung">Nội Dung</label>
+        <textarea class="form-control" id="NoiDung" name="NoiDung" rows="5" required>@Model.NoiDung</textarea>
+    </div>
+    <div class="form-group">
+        <label for="NguoiNhanId">Người Nhận</label>
+        <select class="form-control" id="NguoiNhanId" name="NguoiNhanId" required>
+            <option value="">-- Chọn người nhận --</option>
+            @foreach (var user in ViewBag.Users)
+            {
+                <option value="@user.Id">@user.HoTen</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Gửi</button>
+</form>

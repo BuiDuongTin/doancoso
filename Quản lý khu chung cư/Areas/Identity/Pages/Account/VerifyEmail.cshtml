@@ -1,0 +1,67 @@
+﻿@page
+<!-- Chỉ định rằng đây là một Razor Page -->
+
+@model VerifyEmailModel
+<!-- Gắn Razor Page này với lớp mô hình VerifyEmailModel trong file code-behind (VerifyEmail.cshtml.cs) -->
+
+@{
+    ViewData["Title"] = "Xác minh Email";
+    <!-- Gán tiêu đề của trang là "Xác minh Email" -->
+}
+
+<style>
+    <!-- Định nghĩa các kiểu CSS để tạo giao diện cho trang -->
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    <!-- Đặt font chữ mặc định là Arial, nền màu xám nhạt, và thêm khoảng cách padding cho toàn bộ trang -->
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    <!-- Tạo một container với chiều rộng tối đa 600px, căn giữa, nền trắng, bo góc và hiệu ứng đổ bóng -->
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    <!-- Định dạng tiêu đề h1 với màu chữ xám đậm và căn giữa -->
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+        color: #555;
+    }
+    <!-- Định dạng đoạn văn bản với kích thước chữ 16px, khoảng cách dòng 1.5, căn giữa và màu chữ xám nhạt -->
+
+    .success-message {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #28a745;
+        background-color: #d4edda;
+        color: #155724;
+        border-radius: 5px;
+    }
+    <!-- Định dạng thông báo thành công với viền màu xanh lá, nền xanh nhạt, chữ màu xanh đậm và bo góc -->
+</style>
+
+<div class="container">
+    <!-- Tạo một container để chứa nội dung chính của trang -->
+    <h1>@ViewData["Title"]</h1>
+    <!-- Hiển thị tiêu đề của trang, được lấy từ ViewData["Title"] -->
+
+    <div class="success-message">
+        <!-- Tạo một hộp thông báo thành công -->
+        <p>Email của bạn đã được xác minh thành công.</p>
+        <!-- Hiển thị thông báo xác minh email thành công -->
+    </div>
+</div>
